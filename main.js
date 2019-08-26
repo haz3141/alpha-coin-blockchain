@@ -16,7 +16,7 @@ class Block {
 
 class Blockchain {
 	constructor() {
-		this.chain = [];
+		this.chain = [this.createGenesisBlock()];
 	}
 
 	createGenesisBlock() {
@@ -33,3 +33,10 @@ class Blockchain {
 		this.chain.push(newBlock);
 	}
 }
+
+// TEST BLOCKCHAIN 
+let alphaCoin = new Blockchain();
+alphaCoin.addBlock(new Block(1, '09/11/2001', { amount: 6 }));
+alphaCoin.addBlock(new Block(1, '12/21/2012', { amount: 66 }));
+
+console.log(JSON.stringify(alphaCoin, null, 4));
