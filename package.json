@@ -1,0 +1,23 @@
+{
+  "name": "alpha-coin",
+  "version": "1.0.0",
+  "description": "Basic blockchain built using Javascript. Features will be added on a rolling basis.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haz3141/alpha-coin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haz3141/alpha-coin/issues"
+  },
+  "homepage": "https://github.com/haz3141/alpha-coin#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  }
+}
