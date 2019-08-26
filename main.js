@@ -16,7 +16,7 @@ class Block {
 
 class Blockchain {
 	constructor() {
-		this.chain = [this.createGenesisBlock()];
+		this.chain = [ this.createGenesisBlock() ];
 	}
 
 	createGenesisBlock() {
@@ -32,11 +32,33 @@ class Blockchain {
 		newBlock.hash = newBlock.calculateHash();
 		this.chain.push(newBlock);
 	}
+
+	isChainValid() {
+		for (let i = 1; i < this.chain.length; i++) {
+			const currentBlock = this.chain[i];
+            const previousBlock = this.chain[i - 1];
+            
+            if (currentBlock.hash !== currentBlock.calculateHash()) {
+                return false;
+            }
+
+            if (currentBlock.previousHash !== previousBlock.hash) {
+                return false;
+            }
+
+            return true;
+		}
+	}
 }
 
-// TEST BLOCKCHAIN 
+// INITIALIZE FIRST THREE BLOCKS
 let alphaCoin = new Blockchain();
 alphaCoin.addBlock(new Block(1, '09/11/2001', { amount: 6 }));
 alphaCoin.addBlock(new Block(1, '12/21/2012', { amount: 66 }));
 
+// DISPLAY BLOCKCHAIN
 console.log(JSON.stringify(alphaCoin, null, 4));
+
+// TEST CHAIN VALIDITY
+console.log('Is blockchain valid? ' + alphaCoin.isChainValid());
+
