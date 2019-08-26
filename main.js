@@ -59,6 +59,9 @@ alphaCoin.addBlock(new Block(1, '12/21/2012', { amount: 66 }));
 // DISPLAY BLOCKCHAIN
 console.log(JSON.stringify(alphaCoin, null, 4));
 
+// TAMPER WITH A BLOCK
+alphaCoin.chain[1].data = { amount: 777 };
+alphaCoin.chain[1].hash = alphaCoin[1].calculateHash();
+
 // TEST CHAIN VALIDITY
 console.log('Is blockchain valid? ' + alphaCoin.isChainValid());
-
