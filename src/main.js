@@ -1,4 +1,10 @@
-const {Blockchain, Transaction} = require('./blockchain');
+const { Blockchain, Transaction } = require('./blockchain');
+const EC = require('elliptic').ec;
+const ec = new EC('secp256k1');
+
+// INITIALIZE KEY
+const myKey = ec.keyFromPrivate('75a603bcf73cd18bb32b2c81836bc260a850fe3f4f62e1670e46a52f4c21627c');
+const myWalletAddress = myKey.getPublic('hex');
 
 // INITIALIZE BlOCKCHAIN
 let alphaCoin = new Blockchain();
@@ -6,21 +12,29 @@ console.log('\n------------------------------------------');
 console.log('Genesis', alphaCoin.getLatestBlock());
 console.log('------------------------------------------\n');
 
-// ADD NEW TX
-alphaCoin.createTransaction(new Transaction('address1', 'address2', 100));
-alphaCoin.createTransaction(new Transaction('address2', 'address1', 50));
+//
+const tx1 = new Transaction(myWalletAddress, 'public key goes here', 10);
+tx1.signTransaction(myKey);
+alphaCoin.addTransaction(tx1);
 
+//
 console.log('\nStarting the miner...');
-alphaCoin.minePendingTransactions('address3');
+alphaCoin.minePendingTransactions(myWalletAddress);
 
-console.log('\nBalance of address3:', alphaCoin.getBalanceOfAddress('address3'));
+console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
 
 console.log('\nStarting the miner again...');
-alphaCoin.minePendingTransactions('address3');
+alphaCoin.minePendingTransactions(myWalletAddress);
 
-console.log('\nBalance of address3:', alphaCoin.getBalanceOfAddress('address3'));
+console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
+
+// console.log('Is chain valid?', alphaCoin.isChainValid());
 
 // DEPRECIATED CODE & EXAMPLES
+
+// ADD NEW TX
+// alphaCoin.createTransaction(new Transaction('address1', 'address2', 100));
+// alphaCoin.createTransaction(new Transaction('address2', 'address1', 50));
 
 // console.log('Mining block 1...');
 // alphaCoin.addBlock(new Block(1, '09/11/2001', { amount: 7 }));
