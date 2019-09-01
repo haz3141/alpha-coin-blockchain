@@ -50,7 +50,7 @@ node main.js
 
 * **Haz** - *Project Head* - [haz3141](https://github.com/haz3141)
 
-## TO-DO
+## To-Do
 
 * Timestamp transactions
 * Build front-end
