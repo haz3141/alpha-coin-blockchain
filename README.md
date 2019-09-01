@@ -7,9 +7,9 @@ The goal here is to create a barebones blockchain that clearly demonstrates the 
 
 ## Preview
 
-![Preview](image here)
+![Preview](https://raw.githubusercontent.com/haz3141/alpha-coin-blockchain/master/images/screenshot-keygen.PNG)
 
-![Preview](image here)
+![Preview](https://raw.githubusercontent.com/haz3141/alpha-coin-blockchain/master/images/screenshot-genesis.PNG)
 
 ## Getting Started
 
