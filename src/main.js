@@ -23,10 +23,12 @@ alphaCoin.minePendingTransactions(myWalletAddress);
 
 console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
 
-console.log('\nStarting the miner again...');
-alphaCoin.minePendingTransactions(myWalletAddress);
-
-console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
+for (i = 1; i < 101; i++) {
+	console.log('\nStarting the miner again...');
+	alphaCoin.minePendingTransactions(myWalletAddress);
+    console.log(i, alphaCoin.getLatestBlock());
+	console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
+}
 
 // console.log('Is chain valid?', alphaCoin.isChainValid());
 
