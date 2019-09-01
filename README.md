@@ -50,6 +50,12 @@ node main.js
 
 * **Haz** - *Project Head* - [haz3141](https://github.com/haz3141)
 
+## TO-DO
+
+* Timestamp transactions
+* Build front-end
+* Implement Persistence
+
 ## Acknowledgments
 
 * Hat tip to Node.JS
