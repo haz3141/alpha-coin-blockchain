@@ -3,7 +3,7 @@ A Bitcoin-like blockchain built using JavaScript. This blockchain features secp2
 
 ## Problem & Solution
 
-The goal here is to create a barebones blockchain that clearly demonstrates the key components and layout of a blockchain. This blockchain has three main components: transactions which live inside of blocks which live inside of the blockchain. Tampering of the chain is handled using transaction and block hashing with a SHA-256 algorithm. Spamming the chain is handled by the proof-of-work method which has a difficulty option.
+The goal here is to create a barebones blockchain that clearly demonstrates the key components and layout of a blockchain. This blockchain has three main components: transactions which live inside of blocks which live inside of the blockchain. Tampering of the chain is handled using transaction and block hashing with a SHA-256 algorithm. Spamming the chain is handled by the proof-of-work method which includes a mining reward and an adjustable difficulty.
 
 ## Preview
 
