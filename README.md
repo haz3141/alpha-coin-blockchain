@@ -59,6 +59,7 @@ node main.js
 ## Acknowledgments
 
 * Hat tip to Node.JS
+* Simply Explained - Savjee YouTube Channel for providing the code lecture that is the basis of this project
 * Encryption
 * Cryptography
 * Crypto and Blockchains
