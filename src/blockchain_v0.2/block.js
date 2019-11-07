@@ -1,5 +1,7 @@
 // Import Cryptography Libraries
-import { SHA256 } from "crypto-js";
+// import { SHA256 } from "crypto-js";
+const SHA256 = require('crypto-js/sha256');
+
 
 class Block {
   constructor(timestamp, previousHash, hash, data) {
@@ -30,9 +32,9 @@ class Block {
   static mineBlock(previousBlock, data) {
     let hash;
     let timestamp;
-    const previousHash = previousBlock.hash();
+    const previousHash = previousBlock.hash;
     return new this(timestamp, previousHash, hash, data);
   }
 }
 
-export { Block };
+module.exports = Block;

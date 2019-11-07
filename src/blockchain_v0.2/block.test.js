@@ -7,16 +7,16 @@ const Block = require('./block');
  */
 describe("Block",()=>{
 
-    let data,lastBlock,block;
+    let data,previousBlock,block;
     /**
      * beforeEach allows us to run some code before
      * running any test
      * example creating an instance
      */
     beforeEach(()=>{
-         data = 'bar';
-         lastBlock = Block.genesis();
-         block = Block.mineBlock(lastBlock,data);
+      data = 'bar';
+      previousBlock = Block.genesis();
+      block = Block.mineBlock(previousBlock,data);
     });
     /**
      * it function is used to write unit tests
@@ -31,8 +31,8 @@ describe("Block",()=>{
         expect(block.data).toEqual(data);
     });
 
-    it("sets the `lastHash` to match the hash of the last block",()=>{
-        expect(block.lastHash).toEqual(lastBlock.hash);
+    it("sets the `previousHash` to match the hash of the last block",()=>{
+        expect(block.previousHash).toEqual(previousBlock.hash);
     });
 
 })
