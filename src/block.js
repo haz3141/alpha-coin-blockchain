@@ -1,3 +1,6 @@
+// Import Cryptography Libraries
+import { SHA256 } from "crypto-js";
+
 class Block {
   constructor(timestamp, previousHash, hash, data) {
     this.timestamp = timestamp;
@@ -10,7 +13,7 @@ class Block {
     return `
       Block - 
       Timestamp : ${this.timestamp}
-      Last Hash : ${this.lastHash.substring(0,10)}
+      Last Hash : ${this.previousHash.substring(0,10)}
       Hash      : ${this.hash.substring(0,10)}
       Data      : ${this.data}
     `;
@@ -19,5 +22,17 @@ class Block {
   static genesis(){
     return new this('Genesis time','----','genesis-hash',[]);
   }
+
+  static hash(timestamp, previousHash, data) {
+    return SHA256(`${timestamp}${previousHash}${data}`).toString();
+  }
+
+  static mineBlock(previousBlock, data) {
+    let hash;
+    let timestamp;
+    const previousHash = previousBlock.hash();
+    return new this(timestamp, previousHash, hash, data);
+  }
 }
 
+export { Block };
