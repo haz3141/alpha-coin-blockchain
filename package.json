@@ -20,5 +20,8 @@
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "elliptic": "^6.5.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
