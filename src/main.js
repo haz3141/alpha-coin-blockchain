@@ -3,14 +3,18 @@ const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
 // INITIALIZE KEY
-const myKey = ec.keyFromPrivate('75a603bcf73cd18bb32b2c81836bc260a850fe3f4f62e1670e46a52f4c21627c');
-const myWalletAddress = myKey.getPublic('hex');
+// const myKey = ec.keyFromPrivate('75a603bcf73cd18bb32b2c81836bc260a850fe3f4f62e1670e46a52f4c21627c');
+// const myWalletAddress = myKey.getPublic('hex');
 
 // INITIALIZE BlOCKCHAIN
 let alphaCoin = new Blockchain();
 console.log('\n------------------------------------------');
 console.log('Genesis', alphaCoin.getLatestBlock());
 console.log('------------------------------------------\n');
+
+// INITIALIZE KEY
+const myKey = ec.keyFromPrivate('75a603bcf73cd18bb32b2c81836bc260a850fe3f4f62e1670e46a52f4c21627c');
+const myWalletAddress = myKey.getPublic('hex');
 
 //
 const tx1 = new Transaction(myWalletAddress, 'public key goes here', 10);
@@ -29,6 +33,12 @@ for (i = 1; i < 101; i++) {
     console.log(i, alphaCoin.getLatestBlock());
 	console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
 }
+
+console.log(alphaCoin);
+console.log();
+// DISPLAY BLOCKCHAIN
+// console.table(JSON.stringify(alphaCoin, null, 4));
+console.log('Is chain valid?', alphaCoin.isChainValid());
 
 // console.log('Is chain valid?', alphaCoin.isChainValid());
 

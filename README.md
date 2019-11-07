@@ -58,9 +58,13 @@ node main.js
 
 ## Acknowledgments
 
-* Hat tip to Node.JS
-* Simply Explained - Savjee YouTube Channel for providing the code lecture that is the basis of this project
+* The real Satoshi Nakamoto 👁
+* Savjee for helping me learn blockchain programming
+* Bitcoin and other Blockchains
 * Encryption
 * Cryptography
-* Crypto and Blockchains
-* The real Satoshi Nakamoto
+* Hat tip to Node.JS
+
+## Repositories
+
+[GitHub](https://github.com/haz3141/alpha-coin-blockchain)
