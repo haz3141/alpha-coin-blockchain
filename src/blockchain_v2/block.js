@@ -31,9 +31,15 @@ class Block {
 
   static mineBlock(previousBlock, data) {
     let hash;
-    let timestamp;
+    let timestamp = Date.now();
     const previousHash = previousBlock.hash;
+    hash = Block.hash(timestamp, previousHash, data);
     return new this(timestamp, previousHash, hash, data);
+  }
+
+  static blockHash(block) {
+    const { timestamp, previousHash, data } = block;
+    return Block.hash(timestamp, previousHash, data);
   }
 }
 
