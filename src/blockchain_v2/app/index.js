@@ -1,18 +1,20 @@
 const express = require('express');
 const Blockchain = require('../blockchain');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Require Dot Env
 require('dotenv').config();
 
 // Get PORT from user or set default
-const HTTP_PORT = process.env.HTTP_PORT || 3001;
+const HTTP_PORT = 8080;
 
 // Instantiate Express app
 const app = express();
 
 // Setup middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 // Instantiate Blockchain instance
 const blockchain = new Blockchain();
