@@ -30,6 +30,7 @@ class Block {
   }
 
   static mineBlock(previousBlock, data) {
+    console.log(data);
     let hash;
     let timestamp = Date.now();
     const previousHash = previousBlock.hash;
