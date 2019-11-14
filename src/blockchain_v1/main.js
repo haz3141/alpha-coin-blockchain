@@ -15,26 +15,28 @@ console.log('------------------------------------------\n');
 // INITIALIZE KEY
 const myKey = ec.keyFromPrivate('75a603bcf73cd18bb32b2c81836bc260a850fe3f4f62e1670e46a52f4c21627c');
 const myWalletAddress = myKey.getPublic('hex');
-
-//
-const tx1 = new Transaction(myWalletAddress, 'public key goes here', 10);
-tx1.signTransaction(myKey);
-alphaCoin.addTransaction(tx1);
-
-//
-console.log('\nStarting the miner...');
-alphaCoin.minePendingTransactions(myWalletAddress);
-
 console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
 
-for (i = 1; i < 101; i++) {
-	console.log('\nStarting the miner again...');
-	alphaCoin.minePendingTransactions(myWalletAddress);
-    console.log(i, alphaCoin.getLatestBlock());
-	console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
-}
 
-console.log(alphaCoin);
+// NEGATIVE BALANCE TX
+// const tx1 = new Transaction(Date.now(), myWalletAddress, 'public key goes here', 999990);
+// tx1.signTransaction(myKey);
+// alphaCoin.addTransaction(tx1);
+
+// 
+console.log('\nStarting the miner...');
+alphaCoin.minePendingTransactions(myWalletAddress);
+console.log(alphaCoin.getLatestBlock());
+console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
+
+// for (i = 1; i < 2; i++) {
+// 	console.log('\nStarting the miner again...');
+// 	alphaCoin.minePendingTransactions(myWalletAddress);
+//   console.log(i, alphaCoin.getLatestBlock());
+// 	console.log('\nBalance of myWalletAddress:', alphaCoin.getBalanceOfAddress(myWalletAddress));
+// }
+
+// console.log(alphaCoin);
 console.log();
 // DISPLAY BLOCKCHAIN
 // console.table(JSON.stringify(alphaCoin, null, 4));
