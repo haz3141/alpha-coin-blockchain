@@ -33,6 +33,12 @@ class P2pServer {
         // Add socket to sockets array
         this.sockets.push(socket);
         console.log('Socket Connected!');
+
+        // Register Message Hangler to socket
+        this.handleMessage(socket);
+
+        // Send blockchain to peer
+        socket.send(JSON.stringify(this.blockchain));
     }
 
     connectToPeers() {
@@ -42,6 +48,13 @@ class P2pServer {
             const socket = new WebSocket(peer);
 
             socket.on('open', () => this.connectSocket(socket));
+        });
+    }
+
+    handleMessage(socket) {
+        socket.on('message', message => {
+            const data = JSON.parse(message);
+            console.log('data', data);
         });
     }
 }
